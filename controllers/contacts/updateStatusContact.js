@@ -2,7 +2,7 @@ const { Contact } = require("../../models/contact");
 const updateStatusContact = async (req, res, next) => {
   const { contactId } = req.params;
   const { favorite } = req.body;
-  if (!req.body.favorite) {
+  if (req.body.favorite === undefined) {
     res.status(400).json({
       status: "error",
       code: 400,
