@@ -8,6 +8,11 @@ const contactsSchema = Joi.object({
     .min(5)
     .max(15)
     .required(),
+  favotite: Joi.boolean(),
 });
 
-module.exports = contactsSchema;
+const favoriteContactsSchema = Joi.object({
+  favorite: Joi.boolean().required(),
+});
+
+module.exports = { contactsSchema, favoriteContactsSchema };
