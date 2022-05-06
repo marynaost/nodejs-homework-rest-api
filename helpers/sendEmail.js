@@ -8,8 +8,10 @@ const sendEmail = async (data) => {
 
   try {
     await sgMail.send(email);
+    console.log(`Email successfully sent to ${data.to}`);
     return true;
   } catch (error) {
+    console.log(`Email not sent to ${data.to}: `, error.message);
     throw error;
   }
 };
