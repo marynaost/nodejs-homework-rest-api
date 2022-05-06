@@ -5,14 +5,18 @@ const verifyEmail = async (req, res) => {
   const user = await User.findOne({ verificationToken });
   if (!user) {
     res.status(404).json({
-      message: "User with not found",
+      message: "User not found",
     });
     return;
   }
-  await User.findByIdAndUpdate(user._id, {
-    verify: true,
-    verificationToken: null,
-  });
+  await User.findByIdAndUpdate(
+    user._id,
+    {
+      verify: true,
+      verificationToken: null,
+    },
+    { new: true }
+  );
 
   res.status(200).json({
     message: "Verification successful",
