@@ -1,3 +1,4 @@
 const getCurrent = require("./getCurrent");
+const verifyEmail = require("./verifyEmail");
 
-module.exports = { getCurrent };
+module.exports = { getCurrent, verifyEmail };
